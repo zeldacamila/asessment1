@@ -3,9 +3,9 @@ const AdminCard = ({name, description, profilePic, email, githubLink}) => {
 
     return (
         <><div className="profile-picture">
-            <img src={profilePic} alt="pic" />
+            <img src={require(`../../public/${profilePic}.jpeg`)} />
         </div>
-        <div className="profile-info">""
+        <div className="profile-info">
             <h2>{name}</h2>
             <p>{description}</p>
             <p>Email: {email}</p>

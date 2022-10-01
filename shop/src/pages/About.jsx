@@ -7,7 +7,7 @@ function About() {
           <h1>The greatest e-commerce ever - About</h1>
         </header>
       <AdminCard 
-        profilePic="../../public/foto de perfil.jpeg"
+        profilePic="foto de perfil"
         name="Maria Camila Recuero"
         description="Full-stack developer from Make It Real camp."
         email= "zeldacamila0913@gmail.com"
