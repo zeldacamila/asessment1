@@ -1,13 +1,36 @@
+import React from "react";
+import { useEffect, useState } from "react"
+import axios from "axios"
+import ProductCard from "../components/ProductCard";
+
 function Home() {
+  const [dataProduct, setDataProduct] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    axios.get('https://fakestoreapi.com/products')
+    .then(({ data }) => {
+      console.log('Respuesta:', data.results)
+      setDataProduct(data.results)
+    }).catch((err) => {
+      alert("Ups!!! ocurrió un error")
+    }).finally(() => {
+      setLoading(false)
+    })
+  }, [])
+
     return (
-      <div className="Home">
-        <header className="Home-header">
-          <h1>The greatest e-commerce ever - Home</h1>
+      <><div className="Product">
+        <header className="Product-header">
+          <h1>The greatest e-commerce ever - Product Detail</h1>
         </header>
-        <div>
-            <p>Esta página tendrá la responsabilidad de listar una serie de productos que debes obtener consumiendo la api de Fake Store API.</p>
-        </div>
-      </div>
+      </div><div>
+          {loading ? <p>Loading...</p> : dataProduct.map((item) => {
+            return (
+              <ProductCard key={item.id} product={item} />
+            );
+          })}
+        </div></>
     );
   }
   
