@@ -1,11 +1,16 @@
 import React from "react";
+import Button from "./Button";
+
 const ProductCard = ({ product }) => {
 
     return (
         <div className="product-card">
-            <h2>{product.name}</h2>
-            <h3>{product.id}</h3>
-            <img src={product.image} alt={`pj ${product.name}`} loading="lazy" />
+            <img src={product.image} loading="lazy" alt=""/>
+            <h2>{product.title}</h2>
+            <Button 
+                buttonName= "Go to Detail"
+                id={product.id}
+            />
         </div>
     )
 }

@@ -1,36 +1,41 @@
+import { Link } from "react-router-dom";
 import React from "react";
 import { useEffect, useState } from "react"
 import axios from "axios"
 import ProductCard from "../components/ProductCard";
+import Nav from "../components/Nav";
 
 function Home() {
-  const [dataProduct, setDataProduct] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [dataProducts, setDataProducts] = useState([])
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
+    setLoading(true)
     axios.get('https://fakestoreapi.com/products')
     .then(({ data }) => {
-      console.log('Respuesta:', data.results)
-      setDataProduct(data.results)
+      setDataProducts(data)
     }).catch((err) => {
-      alert("Ups!!! ocurrió un error")
+      console.error(err)
     }).finally(() => {
       setLoading(false)
     })
   }, [])
 
     return (
-      <><div className="Product">
+      <>
+        <Nav />
+        <Link to="/About">About</Link>
         <header className="Product-header">
-          <h1>The greatest e-commerce ever - Product Detail</h1>
+          <h1>Products</h1>
         </header>
-      </div><div>
-          {loading ? <p>Loading...</p> : dataProduct.map((item) => {
+        <div className="Products">
+          {loading ? <p>Loading...</p> : dataProducts.map((item) => {
             return (
               <ProductCard key={item.id} product={item} />
             );
           })}
-        </div></>
+        </div>
+      </>
     );
   }
   

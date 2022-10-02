@@ -1,0 +1,29 @@
+.About-card{
+    border: 2px solid rgb(56, 56, 156);
+    border-radius: 5px;
+    height: 350px;
+    width: 650px;
+    display: flex;
+}
+
+.About-header{
+    padding-top: 10px;
+    margin-bottom: 30px;
+}
+
+.About-header h1{
+    margin: 0px;
+    text-align: center;
+}
+
+.About {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.p {
+    border-bottom: 1px solid black;
+}
