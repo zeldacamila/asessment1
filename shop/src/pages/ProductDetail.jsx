@@ -5,11 +5,11 @@ import { useEffect, useState } from "react";
 
 const ProductDetail = () => {
     const { id } = useParams();
-    const [product, setProduct] = useState()
+    const [product, setProduct] = useState(null)
     
     const oneProduct = async (id, state) => {
         const petition = await axios.get(`https://fakestoreapi.com/products/${id}`)
-        console.log(petition.data)
+        state(petition.data)
     }
     
     useEffect(() => {
@@ -20,13 +20,20 @@ const ProductDetail = () => {
         <>
             <Nav />
             <h1>Product Detail</h1>
-            <h2>Producto con el id {id}</h2>
-            {product ? (
+            {!product ? ('Loading...') : (
                 <div className="Product">
-                    <h2>Producto con el id {id}</h2>
-                     <img src={product.image} alt="" /> 
+                    <div className="product-image">
+                        <img src={product.image} alt="" />
+                    </div>
+                    <div className="product-info">
+                        <h3>{product.category}</h3>
+                        <h2>{product.title}</h2>
+                        <h4>⭐{product.rating.rate}/5 - {product.rating.count} ratings</h4>
+                        <h3>Price: ${product.price}</h3>
+                        <h4>{product.description}</h4>
+                    </div>
                 </div>
-            ) : ('no hay producto')}
+            )}
         </>
         
     )
