@@ -20,6 +20,7 @@ const ProductDetail = () => {
         <>
             <Nav />
             <Link to="/">Home</Link>
+            <br />
             <Link to="/About">About</Link>
             <header className="ProductDetail-header">
             <h1>Product Detail</h1>
