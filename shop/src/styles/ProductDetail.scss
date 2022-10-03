@@ -1,3 +1,22 @@
+.Product-maincontainer{
+    display: flex;
+    justify-content: center;
+}
+.ProductDetail-header{
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid black;
+    padding-top: 10px;
+    margin: 5px;
+    margin-bottom: 30px;
+}
+
+.ProductDetail-header h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+}
 
 .Product {
     display: flex;
@@ -6,8 +25,8 @@
     align-items: center;
     justify-content: center;
     width: 900px;
-    height: 420px;
-    border: 2px solid rgba(187, 187, 187, 0.703);
+    height: 600px;
+    border: 3px solid rgb(185, 185, 185);;
     border-radius: 8px;
 }
 
@@ -25,8 +44,9 @@
 }
 
 .product-info {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     width: 400px;
-    height: 380px;
+    height: 500px;
     margin-left: 60px;
     padding: 15px;
     background-color: rgb(226, 226, 226);
